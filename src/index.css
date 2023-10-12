@@ -1,13 +1,80 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('../public/assets/fonts/inconsolata/static/Inconsolata-Regular.ttf') format('truetype'),
+       url('../public/assets/fonts/inconsolata/static/Inconsolata-Bold.ttf') format('truetype'),
+       url('../public/assets/fonts/inconsolata/Inconsolata-VariableFont_wdth\,wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'Inter';
+  src: url('../public/assets/fonts/inter/static/Inter-Regular.ttf') format('truetype'),
+       url('../public/assets/fonts/inter/static/Inter-Bold.ttf') format('truetype'),
+       url('../public/assets/fonts/inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('../public/assets/fonts/lora/static/Lora-Regular.ttf') format('truetype'),
+       url('../public/assets/fonts/lora/static/Lora-Bold.ttf') format('truetype'),
+       url('../public/assets/fonts/lora/static/Lora-BoldItalic.ttf') format('truetype'),
+       url('../public/assets/fonts/lora/Lora-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+:root {
+  --secondary-color: rgb(164, 69, 237);
+  --secondary-color-25: rgba(164, 69, 237, 0.25);
+  --error-color: rgb(255, 82, 82);
+  --dark-gray-color: rgb(117, 117, 117);
+  --light-gray-color: rgb(233, 233, 233);
+  --light-gray-color-2: rgb(244,244,244);
+  --white: rgb(255,255,255);
+  --black: rgb(5,5,5);
+  --dark-gray-color: rgb(31,31,31);
+
+  --padding-05: 0.5rem;
+  --padding-1: 1rem;
+  --padding-2: 2rem;
+  --padding-3: 3rem;
+  --padding-4: 4rem;
+
+  --margin-1: 1rem;
+  --margin-2: 2rem;
+  --margin-3: 3rem;
+  --margin-4: 4rem;
+
+  --gap-1: 1rem;
+  --gap-2: 2rem;
+  --gap-3: 3rem;
+  --gap-4: 4rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body[data-theme='dark'] {
+  --font-color: var(--white);
+  --body-bg-color:var(--black);
+  --bg-input: var(--dark-gray-color);
+}
+
+body[data-theme='light'] {
+  --font-color: var(--black);
+  --body-bg-color: var(--white);
+  --bg-input: var(--light-gray-color-2);
+}
+
+body {
+  color: var(--font-color);
+  background-color: var(--body-bg-color);
+  font-family: var(--selected-font, 'Lora', serif)
 }

@@ -1,0 +1,22 @@
+.input-container {
+    display: flex;
+    align-items: center;
+    padding: var(--padding-1) var(--padding-1);
+    background-color: var(--bg-input);
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.input-container input {
+    background-color: inherit;
+    border: none;
+    width: 100%;
+}
+
+.input-container input:focus {
+    outline: none;
+}
+
+.input-container > img {
+    cursor: pointer;
+}

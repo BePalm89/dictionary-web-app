@@ -1,0 +1,22 @@
+.fonts-select-container {
+    border-right: 1px solid var(--light-gray-color);
+    padding: 0 1rem;
+    display: inline;
+}
+
+.fonts-select {
+    border: none;
+    padding-right: 1.5rem;
+    appearance: none; 
+    background: url('../../../public/assets/images/icon-arrow-down.svg') no-repeat right center; 
+    background-size: 12px;
+    outline: none;
+    color: inherit;
+}
+
+
+.fonts-select:active,
+.fonts-select:focus{
+    border-bottom: 1px solid var(--secondary-color);
+}
+
