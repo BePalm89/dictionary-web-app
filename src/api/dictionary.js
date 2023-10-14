@@ -27,8 +27,10 @@ export const getDictionaryWord = (word) =>
       const wordData = {
          word: response.word,
          phonetic: phonetic,
-         audio: audio
+         audio: audio,
+         meanings: response.meanings,
+         sourceUrls: response.sourceUrls
       }
-
+      
       return wordData
     })

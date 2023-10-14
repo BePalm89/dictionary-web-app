@@ -1,19 +1,25 @@
 import React, { useContext, useEffect, useState} from "react";
-import "./App.css";
 
 import { ThemeContext } from "./context/ThemeProvider";
+import { ErrorBoundary } from "react-error-boundary";
 
 import { getDictionaryWord } from "./api/dictionary";
 
-import Container from "./styled-components/Container";
+import Container from "./design-system/Container";
 import Navbar from "./components/Navbar/Navbar";
-import Input from "./components/Input/Input";
-import Word from "./components/Word/Word"
+import SearchBar from "./components/SearchBar/SearchBar";
+import Word from "./components/Word/Word";
+import Meaning from './components/Meaning/Meaning.jsx'
+import Source from "./components/Source/Source";
+import WordNotFound from "./components/WordNotFound/WordNotFound";
+import ErrorFallback from "./components/ErrorBoundary/ErrorBoundary.jsx";
+
 
 function App() {
   const { darkMode } = useContext(ThemeContext);
   
-  const [wordData, setWordData] = useState({});
+  const [ wordData, setWordData ] = useState({});
+  const [ wordNotFound, setWordNotFound ] = useState(false);
 
   useEffect(() => {
     document.body.dataset.theme = darkMode ? "dark" : "light";
@@ -21,19 +27,27 @@ function App() {
 
   const handleOnSubmit = (word) => {
     getDictionaryWord(word).then(response => {
-
+      setWordNotFound(false);
       return setWordData(response)
-      })
+    }).catch(() => setWordNotFound(true))
   }
 
-  console.log(wordData);
-
   return ( 
-    <Container>
-      <Navbar></Navbar>
-      <Input onSubmit={handleOnSubmit}></Input>
-      <Word wordData={wordData} ></Word>
-    </Container>
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <Container>
+        <Navbar />
+        <SearchBar onSubmit={handleOnSubmit} />
+        { wordNotFound ? <WordNotFound/> :
+          <>
+          <Word wordData={wordData} />
+          <Meaning wordData={wordData}/>
+          <Source wordData={wordData}/>
+          </>
+        }
+
+      </Container>
+    </ErrorBoundary>
+
   );
 }
 

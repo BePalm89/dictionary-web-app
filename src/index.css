@@ -36,7 +36,6 @@
   --light-gray-color-2: rgb(244,244,244);
   --white: rgb(255,255,255);
   --black: rgb(5,5,5);
-  --dark-gray-color: rgb(31,31,31);
 
   --padding-05: 0.5rem;
   --padding-1: 1rem;
@@ -44,11 +43,13 @@
   --padding-3: 3rem;
   --padding-4: 4rem;
 
+  --margin-05: 0.5rem;
   --margin-1: 1rem;
   --margin-2: 2rem;
   --margin-3: 3rem;
   --margin-4: 4rem;
 
+  --gap-05: 0.5rem;
   --gap-1: 1rem;
   --gap-2: 2rem;
   --gap-3: 3rem;
@@ -65,16 +66,38 @@ body[data-theme='dark'] {
   --font-color: var(--white);
   --body-bg-color:var(--black);
   --bg-input: var(--dark-gray-color);
+  --font-color-gray: var(--white);
 }
 
 body[data-theme='light'] {
   --font-color: var(--black);
   --body-bg-color: var(--white);
   --bg-input: var(--light-gray-color-2);
+  --font-color-gray: var(--dark-gray-color);
 }
 
 body {
   color: var(--font-color);
   background-color: var(--body-bg-color);
   font-family: var(--selected-font, 'Lora', serif)
+}
+
+@media (prefers-color-scheme: dark) {
+  
+  body {
+    --font-color: var(--white);
+    --body-bg-color: var(--black);
+    --bg-input: var(--dark-gray-color);
+    --font-color-gray: var(--white);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  
+  body {
+    --font-color: var(--black);
+    --body-bg-color: var(--white);
+    --bg-input: var(--light-gray-color-2);
+    --font-color-gray: var(--dark-gray-color);
+  }
 }
